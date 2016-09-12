@@ -19,11 +19,9 @@ RUN apt-get install --yes php5-redis
 RUN apt-get install --yes libpcre3-dev
 RUN service redis-server start
 RUN service mysql start
-RUN git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b 1.3.1
-WORKDIR /cphalcon/build
-RUN ./install
-WORKDIR /
-RUN rm -rf /cphalcon
+RUN apt-get install --yes git-core gcc autoconf
+RUN git clone https://github.com/phalcon/cphalcon.git -b 1.3.1
+RUN cd cphalcon/build && ./install
 RUN touch /etc/php5/cli/conf.d/10-phalcon.ini
 RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/10-phalcon.ini
 RUN touch /etc/php5/fpm/conf.d/10-phalcon.ini
