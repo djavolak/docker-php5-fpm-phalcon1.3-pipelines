@@ -16,7 +16,7 @@ RUN apt-get install --yes php5-memcache
 RUN service memcached start
 RUN apt-get install --yes php5-xdebug
 RUN apt-get install --yes php5-redis
-RUN apt-get install --yes php5-dev
+RUN apt-get install --yes libpcre3-dev
 RUN service redis-server start
 RUN service mysql start
 RUN git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b 1.3.1
