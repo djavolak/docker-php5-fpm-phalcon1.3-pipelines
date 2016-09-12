@@ -20,8 +20,9 @@ RUN apt-get install --yes libpcre3-dev
 RUN service redis-server start
 RUN service mysql start
 RUN apt-get install --yes git-core gcc autoconf
-RUN git clone https://github.com/phalcon/cphalcon.git -b 1.3.1
-RUN cd cphalcon/build && ./install
+RUN git clone https://github.com/phalcon/cphalcon.git -b 1.3.2
+RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
+RUN cd cphalcon/ext && ./install
 RUN touch /etc/php5/cli/conf.d/10-phalcon.ini
 RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/10-phalcon.ini
 RUN touch /etc/php5/fpm/conf.d/10-phalcon.ini
