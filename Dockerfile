@@ -24,7 +24,6 @@ WORKDIR /cphalcon/ext
 RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
 RUN phpize
 RUN ./configure --enable-phalcon
-RUN make -j4
 RUN make install
 WORKDIR /
 RUN rm -rf /cphalcon
