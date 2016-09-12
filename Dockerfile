@@ -20,11 +20,8 @@ RUN apt-get install --yes php5-dev
 RUN service redis-server start
 RUN service mysql start
 RUN git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b 1.3.1
-WORKDIR /cphalcon/ext
-RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
-RUN phpize
-RUN ./configure --enable-phalcon
-RUN make install
+WORKDIR /cphalcon/build
+RUN ./install
 WORKDIR /
 RUN rm -rf /cphalcon
 RUN touch /etc/php5/cli/conf.d/10-phalcon.ini
