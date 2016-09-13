@@ -30,7 +30,7 @@ RUN service mysql start
 RUN git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b 1.3.3
 RUN cd cphalcon/ext;
 RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
-RUn phpize
+#RUN phpize
 RUN ./configure --enable-phalcon
 RUN make -j4
 RUN sudo make install
