@@ -18,9 +18,7 @@ RUN apt-get install --yes php5-xdebug
 RUN apt-get install --yes php5-redis
 RUN apt-get install --yes libpcre3-dev
 RUN apt-get install --yes git-core gcc autoconf
-
-RUN apt-get install --yes pecl install imagick
-
+#RUN pecl install imagick
 RUN service memcached start
 RUN service redis-server start
 RUN service mysql start
