@@ -29,5 +29,4 @@ RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/10-phalcon.ini
 RUN touch /etc/php5/fpm/conf.d/10-phalcon.ini
 RUN echo "extension=phalcon.so" >> /etc/php5/fpm/conf.d/10-phalcon.ini
 RUN service php5-fpm start
-RUN service nginx restart
 EXPOSE 9000
