@@ -28,11 +28,8 @@ RUN service mysql start
 #RUN cd cphalcon/build && ./install
 
 RUN git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b 1.3.3
-RUN pwd && ls -la
-RUN cd cphalcon/build
-RUN pwd && ls -la
 RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
-RUN ./install
+RUN cd cphalcon/build && ./install
 
 #RUN phpize
 #RUN ./configure --enable-phalcon
