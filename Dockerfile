@@ -1,5 +1,7 @@
 FROM smartapps/bitbucket-pipelines-php-mysql
 MAINTAINER Milos Jovanov <djavolak@mail.ru>
+ENV TZ=Europe/Belgrade
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update
 RUN apt-get install --yes php5-fpm
 RUN service php5-fpm start
