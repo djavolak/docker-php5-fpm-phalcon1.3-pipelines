@@ -21,9 +21,16 @@ RUN apt-get install --yes git-core gcc autoconf
 RUN service memcached start
 RUN service redis-server start
 RUN service mysql start
-RUN git clone https://github.com/phalcon/cphalcon.git -b 1.3.2
+
+#RUN git clone https://github.com/phalcon/cphalcon.git -b 1.3.3
+#RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
+#RUN cd cphalcon/build && ./install
+
+RUN git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b 1.3.3
+RUN cd cphalcon/ext;
 RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
-RUN cd cphalcon/build && ./install
+RUn phpize && ./configure --enable-phalcon && make -j4 && sudo make install
+
 RUN touch /etc/php5/cli/conf.d/10-phalcon.ini
 RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/10-phalcon.ini
 RUN touch /etc/php5/fpm/conf.d/10-phalcon.ini
