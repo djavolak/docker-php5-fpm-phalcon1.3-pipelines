@@ -21,7 +21,7 @@ RUN apt-get install --yes git-core gcc autoconf
 RUN service memcached start
 RUN service redis-server start
 RUN service mysql start
-RUN git clone https://github.com/phalcon/cphalcon.git -b 1.3.3
+RUN git clone https://github.com/phalcon/cphalcon.git -b 1.3.2
 RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
 RUN cd cphalcon/build && ./install
 RUN touch /etc/php5/cli/conf.d/10-phalcon.ini
