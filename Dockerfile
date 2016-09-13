@@ -32,6 +32,7 @@ RUN cd cphalcon/ext;
 RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
 #RUN phpize
 #RUN ./configure --enable-phalcon
+RUN ./configure
 RUN make -j4
 RUN sudo make install
 
