@@ -18,6 +18,9 @@ RUN apt-get install --yes php5-xdebug
 RUN apt-get install --yes php5-redis
 RUN apt-get install --yes libpcre3-dev
 RUN apt-get install --yes git-core gcc autoconf
+
+RUN apt-get install --yes pecl install imagick
+
 RUN service memcached start
 RUN service redis-server start
 RUN service mysql start
@@ -29,7 +32,10 @@ RUN service mysql start
 RUN git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b 1.3.3
 RUN cd cphalcon/ext;
 RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
-RUn phpize && ./configure --enable-phalcon && make -j4 && sudo make install
+RUn phpize
+RUN ./configure --enable-phalcon
+RUN make -j4
+RUN sudo make install
 
 RUN touch /etc/php5/cli/conf.d/10-phalcon.ini
 RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/10-phalcon.ini
