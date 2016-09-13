@@ -32,9 +32,9 @@ RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
 WORKDIR /cphalcon/build
 RUN ./install
 
-RUN touch /etc/php5/cli/conf.d/10-phalcon.ini
-RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/10-phalcon.ini
-RUN touch /etc/php5/fpm/conf.d/10-phalcon.ini
-RUN echo "extension=phalcon.so" >> /etc/php5/fpm/conf.d/10-phalcon.ini
+RUN touch /etc/php5/cli/conf.d/30-phalcon.ini
+RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/30-phalcon.ini
+RUN touch /etc/php5/fpm/conf.d/30-phalcon.ini
+RUN echo "extension=phalcon.so" >> /etc/php5/fpm/conf.d/30-phalcon.ini
 RUN service php5-fpm start
 EXPOSE 9000
