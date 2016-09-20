@@ -27,13 +27,14 @@ RUN set -x \
     && rm -rf /var/lib/apt/lists/* \
 && apt-get clean -y
 
+RUN apt-get update
 RUN apt-get install --yes php5-fpm
 #RUN apt-get install --yes memcached
 RUN apt-get install --yes php-pear
 #RUN apt-get install --yes redis-server
 #RUN apt-get install --yes php5-dev
+#RUN apt-get install --yes php5-tidy
 RUN apt-get install --yes php5-apcu
-RUN apt-get install --yes php5-tidy
 RUN apt-get install --yes libicu-dev
 RUN apt-get install --yes php5-intl
 RUN apt-get install --yes php5-igbinary
