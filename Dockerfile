@@ -8,7 +8,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # setup & start required services
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get upgrade --yes
 RUN apt-get install --yes libpcre3-dev
 RUN apt-get install --yes libicu-dev
 RUN apt-get install --yes redis-server
