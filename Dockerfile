@@ -1,4 +1,5 @@
-FROM smartapps/bitbucket-pipelines-php-mysql
+#FROM smartapps/bitbucket-pipelines-php-mysql
+FROM webdevops/php-nginx-dev:ubuntu-14.04
 MAINTAINER Milos Jovanov <djavolak@mail.ru>
 
 # setup required timezone
@@ -6,7 +7,26 @@ ENV TZ=Europe/Belgrade
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # setup & start required services
-RUN apt-get update
+
+# Install apt-add-repository
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y \
+        software-properties-common \
+    && rm -rf /var/lib/apt/lists/* \
+&& apt-get clean -y
+
+# Install ansible
+RUN set -x \
+    && apt-add-repository ppa:ansible/ansible \
+    && apt-get update \
+    && apt-get install -y \
+        ansible \
+        python-apt \
+        aptitude \
+    && rm -rf /var/lib/apt/lists/* \
+&& apt-get clean -y
+
 RUN apt-get install --yes php5-fpm
 RUN apt-get install --yes memcached
 RUN apt-get install --yes php-pear
