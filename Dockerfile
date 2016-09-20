@@ -31,7 +31,7 @@ RUN apt-get install --yes php5-fpm
 #RUN apt-get install --yes memcached
 RUN apt-get install --yes php-pear
 #RUN apt-get install --yes redis-server
-RUN apt-get install --yes php5-dev
+#RUN apt-get install --yes php5-dev
 RUN apt-get install --yes php5-apcu
 RUN apt-get install --yes php5-tidy
 RUN apt-get install --yes libicu-dev
