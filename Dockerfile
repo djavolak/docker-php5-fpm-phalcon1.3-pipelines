@@ -28,7 +28,7 @@ RUN set -x \
 && apt-get clean -y
 
 RUN apt-get install --yes php5-fpm
-RUN apt-get install --yes memcached
+#RUN apt-get install --yes memcached
 RUN apt-get install --yes php-pear
 RUN apt-get install --yes redis-server
 RUN apt-get install --yes php5-dev
