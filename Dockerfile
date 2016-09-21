@@ -7,6 +7,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ=Europe/Belgrade
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+RUN apt-get purge php
+
 # setup & start required services
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
@@ -38,7 +40,9 @@ RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
 WORKDIR /cphalcon/build
 RUN ./install
 RUN touch /etc/php5/cli/conf.d/50-phalcon.ini
+RUN touch /etc/php5/mods-available/50-phalcon.ini
 RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/50-phalcon.ini
+RUN echo "extension=phalcon.so" >> /etc/php5/mods-available/50-phalcon.ini
 #RUN touch /etc/php5/fpm/conf.d/30-phalcon.ini
 #RUN echo "extension=phalcon.so" >> /etc/php5/fpm/conf.d/30-phalcon.ini
 RUN service php5-fpm restart
