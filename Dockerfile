@@ -7,8 +7,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ=Europe/Belgrade
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get purge php
-
 # setup & start required services
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
@@ -20,6 +18,7 @@ RUN apt-get install --yes memcached
 RUN apt-get install --yes git-core gcc autoconf make
 RUN apt-get install --yes php5.5
 RUN apt-get install --yes php-igbinary
+RUN apt-get purge php
 #RUN pecl install igbinary 
 RUN apt-get install --yes php5.5-fpm
 #RUN apt-get install --yes php-pear
