@@ -37,10 +37,10 @@ RUN git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b 1.3.3
 RUN export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall";
 WORKDIR /cphalcon/build
 RUN ./install
-RUN touch /etc/php5/cli/conf.d/30-phalcon.ini
-RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/30-phalcon.ini
-RUN touch /etc/php5/fpm/conf.d/30-phalcon.ini
-RUN echo "extension=phalcon.so" >> /etc/php5/fpm/conf.d/30-phalcon.ini
+#RUN touch /etc/php5/cli/conf.d/30-phalcon.ini
+#RUN echo "extension=phalcon.so" >> /etc/php5/cli/conf.d/30-phalcon.ini
+#RUN touch /etc/php5/fpm/conf.d/30-phalcon.ini
+#RUN echo "extension=phalcon.so" >> /etc/php5/fpm/conf.d/30-phalcon.ini
 RUN service php5-fpm start
 
 EXPOSE 9000
