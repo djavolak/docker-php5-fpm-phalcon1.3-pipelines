@@ -15,8 +15,8 @@ RUN apt-get install --yes redis-server
 RUN apt-get install --yes memcached
 RUN apt-get install --yes git-core gcc autoconf make
 RUN apt-get install --yes php5.5
-#RUN apt-get install --yes php5-igbinary
-RUN pecl install igbinary 
+RUN apt-get install --yes php-igbinary
+#RUN pecl install igbinary 
 RUN apt-get install --yes php5.5-fpm
 RUN apt-get install --yes php-pear
 RUN apt-get install --yes php5.5-dev
