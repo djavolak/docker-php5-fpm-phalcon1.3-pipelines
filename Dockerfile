@@ -1,6 +1,8 @@
 FROM webdevops/php-nginx-dev:ubuntu-14.04
 MAINTAINER Milos Jovanov <djavolak@mail.ru>
 
+ENV DEBIAN_FRONTEND noninteractive
+
 # setup required timezone
 ENV TZ=Europe/Belgrade
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -18,7 +20,7 @@ RUN apt-get install --yes php5.5
 RUN apt-get install --yes php-igbinary
 #RUN pecl install igbinary 
 RUN apt-get install --yes php5.5-fpm
-RUN apt-get install --yes php-pear
+#RUN apt-get install --yes php-pear
 RUN apt-get install --yes php5.5-dev
 RUN apt-get install --yes php5.5-tidy
 RUN apt-get install --yes php5.5-apcu
