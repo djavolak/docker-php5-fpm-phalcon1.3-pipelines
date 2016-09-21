@@ -15,16 +15,16 @@ RUN apt-get install --yes redis-server
 RUN apt-get install --yes memcached
 RUN apt-get install --yes git-core gcc autoconf make
 RUN apt-get install --yes php5.5
-RUN apt-get install --yes php5-fpm
-RUN apt-get install --yes php-pear
-RUN apt-get install --yes php5-dev
-RUN apt-get install --yes php5-tidy
-RUN apt-get install --yes php5-apcu
-RUN apt-get install --yes php5-intl
 RUN apt-get install --yes php5-igbinary
-RUN apt-get install --yes php5-memcache
-RUN apt-get install --yes php5-xdebug
-RUN apt-get install --yes php5-redis
+RUN apt-get install --yes php5.5-fpm
+RUN apt-get install --yes php-pear
+RUN apt-get install --yes php5.5-dev
+RUN apt-get install --yes php5.5-tidy
+RUN apt-get install --yes php5.5-apcu
+RUN apt-get install --yes php5.5-intl
+RUN apt-get install --yes php5.5-memcache
+RUN apt-get install --yes php5.5-xdebug
+RUN apt-get install --yes php5.5-redis
 RUN service memcached start
 RUN service redis-server start
 RUN service mysql start
